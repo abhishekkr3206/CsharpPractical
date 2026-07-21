@@ -1,0 +1,48 @@
+using System;
+
+namespace StudentAdmissionManagement
+{
+    class Student
+    {
+        // Private Data Members
+        private int studentId;
+        private string studentName;
+        private string course;
+
+        // Constructor
+        public Student(int id, string name, string courseName)
+        {
+            studentId = id;
+            studentName = name;
+            course = courseName;
+        }
+
+        // Public Method
+        public void DisplayDetails()
+        {
+            Console.WriteLine("------ Student Admission Details ------");
+            Console.WriteLine("Student ID   : " + studentId);
+            Console.WriteLine("Student Name : " + studentName);
+            Console.WriteLine("Course       : " + course);
+            Console.WriteLine();
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Creating Student Objects
+            Student s1 = new Student(101, "Abhishek", "B.Tech CSE");
+            Student s2 = new Student(102, "Raj", "B.Tech CSE");
+            Student s3 = new Student(103, "Shivam", "B.Tech CSE");
+
+            // Display Student Details
+            s1.DisplayDetails();
+            s2.DisplayDetails();
+            s3.DisplayDetails();
+
+            Console.ReadKey();
+        }
+    }
+}
