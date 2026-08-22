@@ -1,0 +1,381 @@
+web form1.aspx 
+ 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="Practical4.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+    <style type="text/css"> 
+        .auto-style1 { 
+            width: 100%; 
+            height: 339px; 
+        } 
+        .auto-style2 { 
+            text-decoration: underline; 
+        } 
+        .auto-style3 { 
+            width: 282px; 
+        } 
+        .auto-style4 { 
+            width: 282px; 
+            height: 26px; 
+        } 
+        .auto-style5 { 
+            height: 26px; 
+        } 
+        .auto-style6 { 
+            width: 282px; 
+            height: 34px; 
+        } 
+        .auto-style7 { 
+            height: 34px; 
+        } 
+        .auto-style8 { 
+ 
+ 
+            width: 100%; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+        <table class="auto-style1"> 
+            <tr> 
+                <td colspan="2" style="font-weight: 
+700">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style2">REGISTRATION FORM</span>&nbsp;</td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="Label4" runat="server" Text="Name"></asp:Label> 
+                </td> 
+                <td> 
+                    <asp:TextBox ID="TextBox1" runat="server" 
+Width="211px"></asp:TextBox> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
+runat="server" ControlToValidate="TextBox1" ErrorMessage="Name is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="Label1" runat="server" Text="Email-ID"></asp:Label> 
+                </td> 
+                <td> 
+                    <asp:TextBox ID="TextBox2" runat="server" 
+Width="209px"></asp:TextBox> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" 
+runat="server" ControlToValidate="TextBox2" ErrorMessage="Email-Id is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+ControlToValidate="TextBox2" ErrorMessage="Enter valid Email-Id" ForeColor="Red" 
+ValidationExpression="^[A-Za-z]+@gmail\.com$"></asp:RegularExpressionValidator> 
+ 
+ 
+                </td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="Label2" runat="server" Text="Phone-No."></asp:Label> 
+                </td> 
+                <td class="auto-style5"> 
+                    <asp:TextBox ID="TextBox3" runat="server" 
+Width="212px"></asp:TextBox> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" 
+runat="server" ControlToValidate="TextBox3" ErrorMessage="Phone-No is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" 
+runat="server" ControlToValidate="TextBox3" ErrorMessage="Enter valid Phone-No" 
+ForeColor="Red" ValidationExpression="^[6-9]\d{9}$"></asp:RegularExpressionValidator> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="Label3" runat="server" Text="Select your 
+stream"></asp:Label> 
+                </td> 
+                <td> 
+                    <asp:DropDownList ID="DropDownList1" runat="server"> 
+                        <asp:ListItem Selected="True">&lt;SELECT&gt;</asp:ListItem> 
+                        <asp:ListItem>B.Tech</asp:ListItem> 
+                        <asp:ListItem>MCA</asp:ListItem> 
+                        <asp:ListItem>BBA</asp:ListItem> 
+                        <asp:ListItem>M.Tech</asp:ListItem> 
+                    </asp:DropDownList> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" 
+runat="server" ControlToValidate="DropDownList1" InitialValue="<SELECT>" 
+ErrorMessage="Stream is required" ForeColor="Red"></asp:RequiredFieldValidator> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;<asp:Label ID="Label5" runat="server" Text="Enter Enrollment No."></asp:Label> 
+ 
+ 
+                </td> 
+                <td> 
+                    <asp:TextBox ID="TextBox4" runat="server" 
+Width="212px"></asp:TextBox> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" 
+runat="server" ControlToValidate="TextBox4" ErrorMessage="Enrollment No. is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label 
+ID="Label7" runat="server" Text="Gender"></asp:Label> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td> 
+                <td>&nbsp;&nbsp;&nbsp; 
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server"> 
+                        <asp:ListItem>Male</asp:ListItem> 
+                        <asp:ListItem>Female</asp:ListItem> 
+                    </asp:RadioButtonList> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" 
+runat="server" ControlToValidate="RadioButtonList1" ErrorMessage="Gender is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+&nbsp;&nbsp;&nbsp; </td> 
+            </tr> 
+            <tr> 
+                
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:L
+abel ID="Label8" runat="server" Text="Age"></asp:Label> 
+                    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+;&nbsp; &nbsp;&nbsp;&nbsp;</td> 
+                <td> 
+                    <asp:TextBox ID="TextBox5" runat="server" Width="44px"></asp:TextBox> 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" 
+runat="server" ControlToValidate="TextBox5" ErrorMessage="Age is required" 
+ForeColor="Red"></asp:RequiredFieldValidator> 
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" 
+ControlToValidate="TextBox5" Type="Integer" ErrorMessage="You must be between 18-25" 
+ForeColor="Red" MaximumValue="25" MinimumValue="18"></asp:RangeValidator> 
+                </td> 
+            </tr> 
+            <tr> 
+ 
+ 
+                <td 
+colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:CheckBoxList ID="CheckBoxList1" runat="server"> 
+                        <asp:ListItem>I agree to the Terms of Service and Privacy 
+Policy.</asp:ListItem> 
+                    </asp:CheckBoxList> 
+<asp:CustomValidator 
+    ID="CustomValidator1" 
+    runat="server" 
+    ErrorMessage="You must agree to the Terms of Service and Privacy Policy." 
+    ForeColor="Red" 
+    OnServerValidate="CustomValidator1_ServerValidate"> 
+</asp:CustomValidator> 
+                    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td> 
+            </tr> 
+            <tr> 
+                <td 
+class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button 
+ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" /> 
+              </td> 
+                <td class="auto-style7"><asp:Button ID="Button2" runat="server" 
+OnClick="Button2_Click" Text="Reset" /> 
+                </td> 
+            </tr> 
+        </table> 
+        <table class="auto-style8"> 
+            <tr> 
+                <td> 
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+Height="109px" /> 
+                </td> 
+            </tr> 
+            
+ 
+            <table class="auto-style8"> 
+    <tr> 
+ 
+ 
+        <td> 
+            <asp:ValidationSummary ID="ValidationSummary2" runat="server" Height="109px" 
+/> 
+        </td> 
+    </tr> 
+</table> 
+ 
+ <br /> 
+<h3>Submitted Registration Details</h3> 
+<asp:GridView ID="GridView1" runat="server" 
+    AutoGenerateColumns="False" 
+    BorderWidth="1px" 
+    CellPadding="5" 
+    GridLines="Both"> 
+   <Columns> 
+  <asp:BoundField DataField="Name" HeaderText="Name" /> 
+<asp:BoundField DataField="Email" HeaderText="Email-ID" /> 
+ <asp:BoundField DataField="Phone" HeaderText="Phone-No." /> 
+<asp:BoundField DataField="Stream" HeaderText="Stream" /> 
+ <asp:BoundField DataField="Enrollment" HeaderText="Enrollment No." /> 
+  <asp:BoundField DataField="Gender" HeaderText="Gender" /> 
+  <asp:BoundField DataField="Age" HeaderText="Age" /> 
+  <asp:BoundField DataField="Terms" HeaderText="Terms Accepted" /> 
+</Columns> 
+</asp:GridView> 
+         </table> 
+      </form> 
+   </body> 
+</html> 
+ 
+ 
+web form1.aspxcs 
+ 
+ 
+ 
+using System; 
+using System.Data; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+ 
+namespace Practical4 
+ 
+ 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+            if (!IsPostBack) 
+            { 
+                CreateTable(); 
+            } 
+        } 
+ 
+        // Create DataTable and store it in ViewState 
+        private void CreateTable() 
+        { 
+            DataTable dt = new DataTable(); 
+ 
+            dt.Columns.Add("Name"); 
+            dt.Columns.Add("Email"); 
+            dt.Columns.Add("Phone"); 
+            dt.Columns.Add("Stream"); 
+            dt.Columns.Add("Enrollment"); 
+            dt.Columns.Add("Gender"); 
+            dt.Columns.Add("Age"); 
+            dt.Columns.Add("Terms"); 
+ 
+            ViewState["RegistrationData"] = dt; 
+ 
+            GridView1.DataSource = dt; 
+            GridView1.DataBind(); 
+        } 
+ 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            // Check all validators 
+            if (Page.IsValid) 
+            { 
+                DataTable dt = ViewState["RegistrationData"] as DataTable; 
+ 
+                if (dt == null) 
+                { 
+                    CreateTable(); 
+                    dt = ViewState["RegistrationData"] as DataTable; 
+                } 
+ 
+                // Add entered data to table 
+                DataRow row = dt.NewRow(); 
+ 
+                row["Name"] = TextBox1.Text; 
+                row["Email"] = TextBox2.Text; 
+ 
+ 
+                row["Phone"] = TextBox3.Text; 
+                row["Stream"] = DropDownList1.SelectedValue; 
+                row["Enrollment"] = TextBox4.Text; 
+                row["Gender"] = RadioButtonList1.SelectedValue; 
+                row["Age"] = TextBox5.Text; 
+ 
+                if (CheckBoxList1.SelectedIndex != -1) 
+                { 
+                    row["Terms"] = "Yes"; 
+                } 
+                else 
+                { 
+                    row["Terms"] = "No"; 
+                } 
+ 
+                dt.Rows.Add(row); 
+ 
+                // Save updated table 
+                ViewState["RegistrationData"] = dt; 
+ 
+                // Display data in GridView 
+                GridView1.DataSource = dt; 
+                GridView1.DataBind(); 
+ 
+                // Clear form after submission 
+                TextBox1.Text = ""; 
+                TextBox2.Text = ""; 
+                TextBox3.Text = ""; 
+                TextBox4.Text = ""; 
+                TextBox5.Text = ""; 
+ 
+                DropDownList1.SelectedIndex = 0; 
+                RadioButtonList1.ClearSelection(); 
+                CheckBoxList1.ClearSelection(); 
+            } 
+        } 
+ 
+        protected void Button2_Click(object sender, EventArgs e) 
+        { 
+            // Reset form 
+            TextBox1.Text = ""; 
+            TextBox2.Text = ""; 
+            TextBox3.Text = ""; 
+            TextBox4.Text = ""; 
+            TextBox5.Text = ""; 
+ 
+            DropDownList1.SelectedIndex = 0; 
+            RadioButtonList1.ClearSelection(); 
+            CheckBoxList1.ClearSelection(); 
+ 
+ 
+        } 
+ 
+        protected void CustomValidator1_ServerValidate( 
+            object source, 
+            ServerValidateEventArgs args) 
+        { 
+            args.IsValid = CheckBoxList1.SelectedIndex != -1; 
+ 
+            if (!args.IsValid) 
+            { 
+                CustomValidator1.ErrorMessage = 
+                    "You must agree to the Terms of Service and Privacy Policy."; 
+                CustomValidator1.ForeColor = 
+                    System.Drawing.Color.Red; 
+            } 
+        } 
+    } 
+} 
