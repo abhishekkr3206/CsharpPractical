@@ -1,0 +1,248 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" 
+Inherits="Practical5.Default" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+    <style type="text/css"> 
+        .auto-style1 { 
+            width: 100%; 
+        } 
+        .auto-style2 { 
+            height: 193px; 
+        } 
+        .auto-style3 { 
+            margin-top: 0px; 
+        } 
+        .auto-style4 { 
+            height: 45px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+        <div> 
+            <table class="auto-style1"> 
+                <tr> 
+                    <td class="auto-style2"> 
+                        <asp:Calendar ID="Calendar1" runat="server" 
+CssClass="auto-style3" OnSelectionChanged="Calendar1_SelectionChanged"> 
+                        </asp:Calendar> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td 
+class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <asp:Label ID="Label3" runat="server" Text="Selected Date 
+:"></asp:Label> 
+&nbsp; 
+                        <asp:Label ID="Label2" runat="server" Text="label"> 
+                        </asp:Label> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <asp:Button ID="Button1" runat="server" Text="Apply leave" 
+Width="102px" OnClick="Button1_Click" /> 
+                    </td> 
+                </tr> 
+            </table> 
+        </div> 
+    </form> 
+</body> 
+</html> 
+ 
+ 
+ 
+ 
+Source: Default.aspx.cs 
+ 
+Code: 
+ 
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Web; 
+using System.Web.UI; 
+using System.Web.UI.WebControls; 
+namespace Practical5 
+{ 
+    public partial class Default : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+        } 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            if (Calendar1.SelectedDate == DateTime.MinValue) 
+            { 
+                return; 
+            } 
+            // Store selected date in Session 
+            Session["LeaveDate"] = Calendar1.SelectedDate; 
+            // Redirect to WebForm1.aspx 
+            Response.Redirect("WebForm1.aspx"); 
+        } 
+ protected void Calendar1_SelectionChanged(object sender, EventArgs e) 
+        { 
+            Label2.Text = Calendar1.SelectedDate.ToString("dd/MM/yyyy"); 
+        } 
+    } 
+} 
+ 
+ 
+ 
+ 
+Source: WebForm1.aspx 
+ 
+Code: 
+ 
+ 
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" 
+Inherits="Practical5.WebForm1" %> 
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head runat="server"> 
+    <title></title> 
+    <style type="text/css"> 
+        .auto-style1 { 
+            width: 100%; 
+        } 
+        .auto-style2 { 
+            width: 169px; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <form id="form1" runat="server"> 
+        <div> 
+            <table class="auto-style1"> 
+                <tr> 
+                    <td colspan="2">&nbsp;&nbsp;&nbsp; 
+                        <asp:Label ID="Label1" runat="server" Text="LEAVE 
+APPLICATION"></asp:Label> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2">&nbsp;&nbsp; 
+                        <asp:Label ID="Label2" runat="server" Text="Employee Name 
+:"></asp:Label> 
+                    </td> 
+                   <td> 
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2">&nbsp;&nbsp; 
+                        <asp:Label ID="Label3" runat="server" Text="Leave 
+Date"></asp:Label> 
+                    </td> 
+                    <td> 
+                        <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2">&nbsp;&nbsp; 
+                        <asp:Label ID="Label5" runat="server" Text="Leave 
+Type"></asp:Label> 
+                    </td> 
+                    <td> 
+                        <asp:DropDownList ID="DropDownList1" runat="server"> 
+                            <asp:ListItem>Select Leave Type</asp:ListItem> 
+                            <asp:ListItem>Medical Leave</asp:ListItem> 
+                            <asp:ListItem>Casual Leave</asp:ListItem> 
+                            <asp:ListItem>Paid Leave</asp:ListItem> 
+                            <asp:ListItem>Emergency Leave</asp:ListItem> 
+                            <asp:ListItem>Sick Leave</asp:ListItem> 
+                        </asp:DropDownList> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <asp:Label ID="Label6" runat="server" Text="Reason 
+:"></asp:Label> 
+                    </td> 
+                    <td> 
+                        <asp:TextBox ID="TextBox2" runat="server" Height="71px" 
+TextMode="MultiLine" Width="214px"></asp:TextBox> 
+                    </td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2"> 
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember my 
+name" /> 
+                    </td> 
+                    <td>&nbsp;</td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2">&nbsp;
+ <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" 
+Text="Submit Leave" /> 
+                    </td> 
+                    <td>&nbsp;</td> 
+                </tr> 
+                <tr> 
+                    <td class="auto-style2"> 
+                        <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label> 
+                    </td> 
+                    <td>&nbsp;</td> 
+                </tr> 
+            </table> 
+        </div> 
+    </form> 
+</body> 
+</html> 
+ 
+ 
+ 
+Source: WebForm1.aspx.cs 
+ 
+Code: 
+ 
+using System; 
+using System.Web.UI; 
+namespace Practical5 
+{ 
+    public partial class WebForm1 : System.Web.UI.Page 
+    { 
+        protected void Page_Load(object sender, EventArgs e) 
+        { 
+            if (!IsPostBack) 
+            { 
+                if (Session["LeaveDate"] != null) 
+                { 
+                    DateTime selectedDate = (DateTime)Session["LeaveDate"]; 
+                    Label4.Text = selectedDate.ToString("dd/MM/yyyy"); 
+                } 
+                else 
+                { 
+                    Label4.Text = "No date selected"; 
+                } 
+            } 
+        } 
+        protected void Button1_Click(object sender, EventArgs e) 
+        { 
+            // Check whether a date exists in Session 
+          if (Session["LeaveDate"] == null) 
+            { 
+                Label7.Text = "Please select a leave date."; 
+                return; 
+            } 
+            // Check whether leave type has been selected 
+            if (DropDownList1.SelectedIndex == 0) 
+            { 
+                Label7.Text = "Please select a leave type."; 
+                return; 
+            } 
+            // Get selected date from Session 
+            DateTime selectedDate = (DateTime)Session["LeaveDate"]; 
+            // Get selected leave type from DropDownList 
+            string leaveType = DropDownList1.SelectedValue; 
+            // Display confirmation message 
+            Label7.Text = leaveType + " has been applied on " 
+                        + selectedDate.ToString("dd/MM/yyyy") + "."; 
+        } 
+    } 
+}
