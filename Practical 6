@@ -1,0 +1,110 @@
+view/Product/Index.cshtml 
+ 
+Code: 
+ 
+@model IEnumerable<ProductCatalog.Models.Product> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Product Catalog</title> 
+    <style>         body { 
+            font-family: Arial; 
+            background-color: #f2f2f2; 
+        }         h1 { 
+            text-align: center; 
+            color: #333; 
+        } 
+        .products {             width: 80%;             margin: auto;             display: flex;             gap: 20px;             flex-wrap: wrap; 
+        } 
+        .product {             background: white;             width: 200px;             padding: 20px;             border-radius: 10px;             box-shadow: 0 2px 8px gray; 
+        } 
+            .product h2 { 
+                color: #007bff; 
+            } 
+        .price {             color: green; 
+            font-weight: bold; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Product Catalog</h1> 
+    <div class="products"> 
+        @foreach (var product in Model) 
+        { 
+            <div class="product"> 
+                <h2>@product.Name</h2> 
+                <p> 
+                    <b>Category:</b> 
+                    @product.Category 
+                </p> 
+                <p class="price"> 
+                    Price: ₹@product.Price 
+                </p> 
+            </div> 
+        } 
+    </div> 
+</body> 
+</html> 
+ 
+Source:Models/Product.cs 
+ 
+Code: 
+ 
+namespace ProductCatalog.Models 
+{ 
+    public class Product 
+    { 
+        public int Id { get; set; }         public string Name { get; set; }         public string Category { get; set; } 
+        public decimal Price { get; set; } 
+    } 
+} 
+ 
+Source:Controllers/ProductController.cs 
+ 
+Code: 
+ 
+using System.Collections.Generic; using System.Web.Mvc; using ProductCatalog.Models; namespace ProductCatalog.Controllers 
+{ 
+    public class ProductController : Controller 
+    { 
+        public ActionResult Index() 
+        { 
+            List<Product> products = new List<Product>() 
+            { 
+                new Product 
+                { 
+                    Id = 1, 
+                    Name = "Laptop", 
+                    Category = "Electronics", 
+                    Price = 55000 
+                }, 
+ 
+                new Product 
+                { 
+                    Id = 2, 
+                    Name = "Mobile Phone", 
+                    Category = "Electronics", 
+                    Price = 25000 
+                }, 
+ 
+                new Product 
+                { 
+                    Id = 3, 
+                    Name = "Headphones", 
+                    Category = "Accessories", 
+                    Price = 2000 
+                }, 
+ 
+                new Product 
+                { 
+                    Id = 4, 
+                    Name = "Smart Watch", 
+                    Category = "Wearable", 
+                    Price = 4500 
+                } 
+            }; 
+ 
+            return View(products); 
+        } 
+    } 
+}
